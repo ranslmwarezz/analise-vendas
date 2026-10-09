@@ -1,0 +1,17 @@
+services:
+  postgres:
+    image: postgres:18
+    container_name: analise-vendas-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-analise_vendas}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - dados_postgres:/var/lib/postgresql
+
+volumes:
+  dados_postgres:
+    name: analise-vendas_dados_postgres
