@@ -19,4 +19,4 @@ INNER JOIN vendas v
 ON it.venda_id = v.id
 WHERE v.status = 'CONCLUIDA' AND EXTRACT(YEAR FROM v.data_hora) = 2025
 GROUP BY mes
-ORDER BY mes ASC;
+ORDER BY MIN(EXTRACT(MONTH FROM v.data_hora)) ASC;
