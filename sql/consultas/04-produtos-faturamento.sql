@@ -1,4 +1,4 @@
--- Quais são foram 10 produtos que geraram mais faturamento em 2025?
+-- Quais são os 10 produtos que geraram mais faturamento em 2025?
 SELECT p.nome, SUM((it.quantidade * it.preco_unitario) - it.desconto) AS faturamento_produto
 FROM produtos p
 INNER JOIN itens_venda it
